@@ -194,7 +194,7 @@
   }
 
   .nav-links li a {
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 
   .icones__social {
@@ -269,7 +269,7 @@
 }
 
 /* Extra Pequenos (Ex: iPhone 5/SE, max-width: 375px) */
-@media (max-width: 375px) {
+@media (max-width: 472px) {
   .background {
     background-image: url(assets/banner_home_mini-mobile.png);
     height: 40vh;
@@ -343,5 +343,11 @@
   .link-voltar-topo img {
     width: 1.75rem;
     height: auto;
+  }
+}
+
+@media (max-width: 472px) {
+  .nav-links li a {
+    font-size: 0.75rem;
   }
 }
