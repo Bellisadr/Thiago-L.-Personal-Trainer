@@ -1,0 +1,308 @@
+/* Tablet e Telas Médias (max-width: 992px) */
+@media (max-width: 992px) {
+  /* Navbar */
+  .nav-links {
+    gap: 4rem;
+    font-size: 1.2rem;
+  }
+
+  .logo img {
+    max-height: 8em;
+  }
+
+  /* Home Section */
+  .background {
+    height: 95vh;
+  }
+
+  .icones__social {
+    gap: 2rem;
+    bottom: 8rem;
+    right: 3rem;
+  }
+
+  .icones__social img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  /* Sobre Section */
+  .sobre {
+    flex-direction: column-reverse;
+    padding: 3rem 2rem;
+    gap: 3rem;
+  }
+
+  .sobre__texto {
+    max-width: 80%;
+  }
+
+  .sobre__texto h2 {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .sobre__texto p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .sobre img {
+    width: 20rem;
+    height: 20rem;
+    margin: 0 auto;
+  }
+
+  /* Serviços Section */
+  .serviços__texto h2 {
+    font-size: 2.8rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .serviços__texto ul {
+    gap: 1rem;
+  }
+
+  .serviços__texto ul li {
+    max-width: 100%;
+    padding: 1.25rem;
+    padding-bottom: 4rem;
+  }
+
+  .serviços__texto ul li h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .serviços__texto ul li p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .foto__servicos {
+    width: 90%;
+  }
+
+  /* Contato Section */
+  .contato {
+    padding: 4rem 1rem;
+  }
+
+  .contato h2 {
+    font-size: 2.8rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .contato__links {
+    gap: 2rem;
+  }
+
+  .link-voltar-topo {
+    bottom: 1rem;
+    right: 4rem;
+  }
+}
+
+/* Celulares (max-width: 576px) */
+@media (max-width: 576px) {
+  .background {
+    background-image: url(assets/banner_home_mobile.png);
+    height: 55vh;
+    background-position: 20% center;
+  }
+
+  .logo img {
+    max-height: 7em;
+  }
+
+  .nav-links {
+    gap: 2rem;
+  }
+
+  .nav-links li a {
+    font-size: 1.25rem;
+  }
+
+  .icones__social {
+    gap: 1rem;
+    bottom: 55%;
+    right: 1.25rem;
+  }
+
+  .icones__social img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  /* Sobre Section */
+  .sobre {
+    padding: 1rem 1rem 5rem 1rem;
+    flex-direction: column;
+  }
+
+  .sobre__texto {
+    max-width: 95%;
+  }
+
+  .sobre__texto h2 {
+    font-size: 3rem;
+  }
+
+  .sobre__texto p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .sobre img {
+    width: 15rem;
+    height: 15rem;
+  }
+
+  /* Serviços Section */
+  .serviços {
+    padding: 3rem 1rem;
+  }
+
+  .serviços__texto h2 {
+    font-size: 2.2rem;
+    padding-bottom: 1rem;
+  }
+
+  .serviços__texto ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .serviços__texto ul li {
+    width: 90%;
+    padding: 0.75rem;
+    padding-bottom: 4rem;
+  }
+
+  .serviços__texto h3 {
+    padding: 1rem;
+    padding-bottom: 0;
+  }
+
+  .serviços__texto ul li p {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .foto__servicos {
+    width: 70%;
+  }
+
+  /* Contato Section */
+  .contato {
+    padding: 3rem 3rem 7rem;
+  }
+
+  .contato h2 {
+    font-size: 2.2rem;
+  }
+
+  .contato__links {
+    gap: 1.5rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .contato__links img {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .link-voltar-topo {
+    margin-right: 0.25rem;
+    font-size: 0.9rem;
+  }
+
+  .link-voltar-topo img {
+    width: 2rem;
+    height: auto;
+  }
+
+  /* Footer */
+  footer {
+    font-size: 0.65em;
+    padding: 0.5rem;
+  }
+}
+
+/* Extra Pequenos (Ex: iPhone 5/SE, max-width: 375px) */
+@media (max-width: 375px) {
+  .background {
+    background-image: url(assets/banner_home_mini-mobile.png);
+    height: 40vh;
+    background-position: 30%;
+  }
+
+  .logo img {
+    max-height: 5em;
+  }
+
+  nav {
+    padding: 0.25rem 0.75rem;
+  }
+
+  .nav-links {
+    gap: 0.75rem;
+    padding-left: 1rem;
+  }
+
+  .nav-links li a {
+    font-size: 1rem;
+  }
+
+  .icones__social {
+    gap: 1rem;
+    bottom: 65%;
+    right: 1.25rem;
+  }
+
+  .icones__social img {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .sobre {
+    padding-bottom: 2rem;
+  }
+  .sobre__texto h2,
+  .serviços__texto h2,
+  .contato h2 {
+    font-size: 1.75rem;
+    margin: 0;
+  }
+
+  .sobre__texto p {
+    font-size: 0.8rem;
+    padding-top: 2rem;
+  }
+
+  .contato {
+    padding: 0.25rem 1rem 6rem;
+  }
+
+  .contato h2 {
+    margin: 0;
+  }
+
+  .contato__links {
+    gap: 1.5rem;
+    padding: 1rem 0.10rem;
+  }
+
+  .contato__links p {
+    font-size: 0.90rem;
+  }
+
+  .link-voltar-topo {
+    font-size: 0.9rem;
+  }
+
+  .link-voltar-topo img {
+    width: 1.75rem;
+    height: auto;
+  }
+}
