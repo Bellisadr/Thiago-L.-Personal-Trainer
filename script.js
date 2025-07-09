@@ -1,83 +1,97 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const sobreTextoContainer = document.querySelector('.sobre__texto'); // O div pai do parágrafo e título
     const paragraph = document.getElementById('sobre-paragrafo-principal');
-    const originalText = paragraph.innerHTML; // Salva o HTML original do parágrafo
-    const imageToHide = document.querySelector('.foto__sobre'); // Sua imagem original
+    const imageToHide = document.querySelector('.foto__sobre'); // Sua imagem original (fora do sobre__texto)
 
-    // Ponto onde você quer inserir a imagem (aproximadamente)
-    // Vou usar a segunda <br><br> como ponto de inserção
-    const brBreakPoint = originalText.indexOf('<br><br>', originalText.indexOf('<br><br>') + 1); // Encontra a segunda ocorrência de <br><br>
+    if (!paragraph || !imageToHide) {
+        console.warn("Elementos 'sobre-paragrafo-principal' ou '.foto__sobre' não encontrados. O script pode não funcionar.");
+        return;
+    }
+
+    const originalTextContent = paragraph.innerHTML; // Salva o HTML original do parágrafo
     
+    // Ponto onde você quer inserir a imagem (aproximadamente)
+    const brBreakPoint = originalTextContent.indexOf('<br><br>', originalTextContent.indexOf('<br><br>') + 1);
+
     // Media Query para detectar 375px
     const mediaQuery = window.matchMedia('(max-width: 375px)');
 
-    function handleMediaQuery(e) {
+    // Cria o elemento da imagem a ser injetada UMA VEZ
+    const inlineImage = document.createElement('img');
+    inlineImage.src = 'assets/thiago_sobre.png';
+    inlineImage.alt = 'Thiago Lopes';
+    inlineImage.classList.add('foto__sobre-inline');
+    // Adiciona a imagem ao DOM, mas escondida por padrão
+    sobreTextoContainer.appendChild(inlineImage); // Adiciona ao final do sobre__texto
+
+    function applyMobileLayout() {
+        if (brBreakPoint !== -1) {
+            const textPart1 = originalTextContent.substring(0, brBreakPoint + '<br><br>'.length);
+            const textPart2 = originalTextContent.substring(brBreakPoint + '<br><br>'.length);
+
+            // Temporariamente esconde o parágrafo original
+            paragraph.style.display = 'none';
+
+            // Garante que a imagem original esteja escondida
+            imageToHide.style.display = 'none';
+
+            // Cria ou atualiza os elementos de texto injetados
+            let p1 = document.querySelector('.sobre-texto-parte1-js');
+            let p2 = document.querySelector('.sobre-texto-parte2-js');
+
+            if (!p1) { // Se não existirem, cria
+                p1 = document.createElement('p');
+                p1.classList.add('sobre-texto-parte1-js');
+                sobreTextoContainer.insertBefore(p1, paragraph); // Insere antes do original
+            }
+            p1.innerHTML = textPart1;
+            p1.style.display = 'block';
+
+            if (!p2) { // Se não existirem, cria
+                p2 = document.createElement('p');
+                p2.classList.add('sobre-texto-parte2-js');
+                sobreTextoContainer.appendChild(p2); // Insere depois da imagem (será reordenado com flexbox/CSS)
+            }
+            p2.innerHTML = textPart2;
+            p2.style.display = 'block';
+
+            // Insere a imagem inline entre p1 e p2 (via JS)
+            sobreTextoContainer.insertBefore(inlineImage, p2);
+            inlineImage.style.display = 'block'; // Mostra a imagem inline
+
+            sobreTextoContainer.classList.add('mobile-layout-active');
+        }
+    }
+
+    function revertToOriginalLayout() {
+        // Mostra o parágrafo original e esconde os injetados
+        paragraph.style.display = 'block';
+        
+        const p1 = document.querySelector('.sobre-texto-parte1-js');
+        const p2 = document.querySelector('.sobre-texto-parte2-js');
+
+        if (p1) p1.style.display = 'none';
+        if (p2) p2.style.display = 'none';
+        
+        inlineImage.style.display = 'none'; // Esconde a imagem inline
+
+        // Mostra a imagem original
+        imageToHide.style.display = 'block';
+
+        sobreTextoContainer.classList.remove('mobile-layout-active');
+    }
+
+    function handleMediaQueryChange(e) {
         if (e.matches) {
-            // Se a tela for 375px ou menor
-            if (brBreakPoint !== -1) {
-                const textPart1 = originalText.substring(0, brBreakPoint + '<br><br>'.length);
-                const textPart2 = originalText.substring(brBreakPoint + '<br><br>'.length);
-
-                // Esconde a imagem original
-                if (imageToHide) {
-                    imageToHide.style.display = 'none';
-                }
-
-                // Cria o elemento da imagem a ser inserida
-                const inlineImage = document.createElement('img');
-                inlineImage.src = 'assets/thiago_sobre.png'; // Use a mesma imagem ou uma versão otimizada
-                inlineImage.alt = 'Thiago Lopes';
-                inlineImage.classList.add('foto__sobre-inline'); // Adicione uma classe para estilizar
-
-                // Cria os novos elementos de parágrafo para as partes do texto
-                const p1 = document.createElement('p');
-                p1.innerHTML = textPart1;
-
-                const p2 = document.createElement('p');
-                p2.innerHTML = textPart2;
-                
-                // Limpa o conteúdo original e insere os novos elementos
-                paragraph.innerHTML = ''; // Limpa o parágrafo original
-                paragraph.parentNode.insertBefore(p1, paragraph); // Insere a primeira parte
-                paragraph.parentNode.insertBefore(inlineImage, paragraph); // Insere a imagem
-                paragraph.parentNode.insertBefore(p2, paragraph); // Insere a segunda parte
-
-                // Remove o parágrafo original vazio se você não o quiser
-                paragraph.remove(); 
-
-                // Adiciona a classe ao container pai para ajustar layout
-                document.querySelector('.sobre__texto').classList.add('mobile-layout-active');
-
-            }
+            applyMobileLayout();
         } else {
-            // Se a tela for maior que 375px
-            // Reverte as mudanças, restaurando o HTML original
-            const existingInlineImage = document.querySelector('.foto__sobre-inline');
-            const existingP1 = document.querySelector('#sobre-paragrafo-principal + p'); // Ou outra forma de selecionar os parágrafos injetados
-            const existingP2 = existingP1 ? existingP1.nextElementSibling : null;
-
-            if (existingInlineImage && existingP1 && existingP2) {
-                const originalP = document.createElement('p');
-                originalP.id = 'sobre-paragrafo-principal';
-                originalP.innerHTML = originalText;
-
-                existingP1.parentNode.insertBefore(originalP, existingP1); // Insere o p original de volta
-                existingP1.remove();
-                existingInlineImage.remove();
-                existingP2.remove();
-
-                // Mostra a imagem original
-                if (imageToHide) {
-                    imageToHide.style.display = 'block'; // Ou o display original dela
-                }
-
-                document.querySelector('.sobre__texto').classList.remove('mobile-layout-active');
-            }
+            revertToOriginalLayout();
         }
     }
 
     // Chama a função uma vez ao carregar a página
-    handleMediaQuery(mediaQuery);
+    handleMediaQueryChange(mediaQuery);
 
     // Adiciona o listener para mudanças na media query
-    mediaQuery.addListener(handleMediaQuery);
+    mediaQuery.addListener(handleMediaQueryChange);
 });
