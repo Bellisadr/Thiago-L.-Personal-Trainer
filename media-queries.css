@@ -54,27 +54,27 @@
   }
 
   /* Serviços Section */
-  .serviços__texto h2 {
+  .servicos__texto h2 {
     font-size: 2.8rem;
     margin-bottom: 2.5rem;
   }
 
-  .serviços__texto ul {
+  .servicos__texto ul {
     gap: 1rem;
   }
 
-  .serviços__texto ul li {
+  .servicos__texto ul li {
     max-width: 100%;
     padding: 1.25rem;
     padding-bottom: 4rem;
   }
 
-  .serviços__texto ul li h3 {
+  .servicos__texto ul li h3 {
     font-size: 1.6rem;
     margin-bottom: 1rem;
   }
 
-  .serviços__texto ul li p {
+  .servicos__texto ul li p {
     font-size: 0.95rem;
     margin-bottom: 1.5rem;
   }
@@ -159,32 +159,32 @@
   }
 
   /* Serviços Section */
-  .serviços {
+  .servicos {
     padding: 3rem 1rem;
   }
 
-  .serviços__texto h2 {
+  .servicos__texto h2 {
     font-size: 2.2rem;
     padding-bottom: 1rem;
   }
 
-  .serviços__texto ul {
+  .servicos__texto ul {
     flex-direction: column;
     align-items: center;
   }
 
-  .serviços__texto ul li {
+  .servicos__texto ul li {
     width: 90%;
     padding: 0.75rem;
     padding-bottom: 4rem;
   }
 
-  .serviços__texto h3 {
+  .servicos__texto h3 {
     padding: 1rem;
     padding-bottom: 0;
   }
 
-  .serviços__texto ul li p {
+  .servicos__texto ul li p {
     font-size: 1rem;
     padding: 1rem;
   }
@@ -269,7 +269,7 @@
     padding-bottom: 2rem;
   }
   .sobre__texto h2,
-  .serviços__texto h2,
+  .servicos__texto h2,
   .contato h2 {
     font-size: 1.75rem;
     margin: 0;
@@ -290,11 +290,11 @@
 
   .contato__links {
     gap: 1.5rem;
-    padding: 1rem 0.10rem;
+    padding: 1rem 0.1rem;
   }
 
   .contato__links p {
-    font-size: 0.90rem;
+    font-size: 0.9rem;
   }
 
   .link-voltar-topo {

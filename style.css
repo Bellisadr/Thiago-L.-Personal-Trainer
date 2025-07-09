@@ -68,8 +68,8 @@ nav {
   justify-content: flex-end;
   gap: 3rem;
   position: absolute;
-  bottom: 7rem; 
-  right: 7rem; 
+  bottom: 7rem;
+  right: 7rem;
 }
 
 .icones__social img {
@@ -121,7 +121,7 @@ nav {
 
 /* Serviços Section */
 
-.serviços {
+.servicos {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -129,14 +129,14 @@ nav {
   padding: 4rem 2rem;
 }
 
-.serviços__texto {
+.servicos__texto {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.serviços__texto h2 {
+.servicos__texto h2 {
   font-family: var(--font-primaria);
   color: var(--cor-laranja);
   font-size: 3.25rem;
@@ -144,14 +144,14 @@ nav {
   padding-bottom: 3rem;
 }
 
-.serviços__texto ul {
+.servicos__texto ul {
   display: flex;
   justify-content: center;
   list-style: none;
   gap: 2rem;
 }
 
-.serviços__texto ul li {
+.servicos__texto ul li {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -162,14 +162,14 @@ nav {
   padding: 2rem 2rem 5rem 2rem;
 }
 
-.serviços__texto h3 {
+.servicos__texto h3 {
   font-family: var(--font-primaria);
   color: var(--cor-laranja-claro);
   font-size: 1.8rem;
   padding-bottom: 1.5rem;
 }
 
-.serviços__texto p {
+.servicos__texto p {
   font-size: 1rem;
   line-height: 1.6;
   font-family: var(--font-secundaria);
